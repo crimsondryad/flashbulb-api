@@ -1,12 +1,22 @@
 <?php
 require_once("connect.php");
+$username = $_GET['username'];
 
 function get_user($username) {
-    $result = mysql_query("select * from users where username='".$username."'");
+  $sql = "select * from users where users.username = 'hodor'";
+    $result = mysqli_query($con, $sql);
     if(!$result) {
         die("Try again, loser ".mysqli_error);
     }
-    
+    echo $result;
+   if (mysqli_num_rows($result) > 0) {
+    // output data of each row
+    while($row = mysqli_fetch_assoc($result)) {
+        print_r($row);
+    }
+} else {
+    echo "0 results";
+} 
     return mysql_result($result);
     
 }

@@ -17,16 +17,15 @@ mysqli_real_connect($con, "innovation-terminators.mysql.database.azure.com", "te
 // Check connection
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
-} 
+
+//phpinfo();
 */
 
-   
-
-
-// Create connection
-
+// Create connection - old skool
 $con = mysqli_connect("innovation-terminators.mysql.database.azure.com", "terminators@innovation-terminators", $password, $dbname);
-mysqli_select_db($con); or die("Unable to connect to database");
+if(!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+} 
 
 // Check connection
 /*
