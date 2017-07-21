@@ -52,9 +52,10 @@ function send_message($_POST, $db) {
    $message = $_POST['text'];
    $b_username = $_POST['sender']; // is this really the sender field?
    $b_uid = $_POST['b_uid'];  // sender or recipient?
+   $bstat = $_POST['category'];
     
-  $query = "insert into base_message (bid, b_username, bdate, bmsg, b_uid) values  ('', $b_username, NOW(), $message, $b_uid)'";
-  $result = if (mysqli_query($db, $query)) {
+  $query = "insert into base_message (bid, b_username, bstat, bdate, bmsg, b_uid) values  ('', $b_username, $bstat, NOW(), $message, $b_uid)";
+  if (mysqli_query($db, $query)) {
     return "Message sent";
   } else {
     return "Message failed.  Please try again." .mysqli_error($db);
