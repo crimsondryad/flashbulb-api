@@ -1,10 +1,11 @@
 <?php
-$servername = getenv("MYSQLCONNSTR_host");
-$username = getenv("MYSQLCONNSTR_username");
-$password = getenv("MYSQLCONNSTR_mysql_password");
-$dbname = getenv("MYSQLCONNSTR_schema");
+   
+$servername = getenv('MYSQLCONNSTR_host');
+$user = getenv('MYSQLCONNSTR_username');
+$password = getenv('MYSQLCONNSTR_password');
+$dbname = getenv('MYSQLCONNSTR_schema');
 
-print_r(getenv());
+//phpinfo();
 
 // Create connection
 
