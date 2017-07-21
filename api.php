@@ -1,4 +1,6 @@
 <?php
+
+echo "here I am"
 require_once 'API.class.php';
 class MyAPI extends API
 {
