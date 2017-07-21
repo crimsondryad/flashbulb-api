@@ -83,13 +83,17 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
 
 } else {
    if (isset($_POST["action"]) && in_array($_POST["action"], $possible_url)) {
+    switch {
     case "send_message":
         $post = $_POST;
          echo $value = send_message($post,$db);
         else
           $value = "Missing argument";
         break;
+    }
+    }
 }
+
 
 
 ?>
