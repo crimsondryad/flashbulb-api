@@ -47,7 +47,22 @@ function get_messages($uid, $db) {
 return $json;
 }
 
-$possible_url = array("get_user","get_messages");
+function send_message($_POST, $db) {
+
+   $message = $_POST['text'];
+   $b_username = $_POST['sender']; // is this really the sender field?
+   $b_uid = $_POST['b_uid'];  // sender or recipient?
+    
+  $query = "insert into base_message (bid, b_username, bdate, bmsg, b_uid) values  ('', $b_username, NOW(), $message, $b_uid)'";
+  $result = if (mysqli_query($db, $query)) {
+    return "Message sent";
+  } else {
+    return "Message failed.  Please try again." .mysqli_error($db);
+  }
+  
+}
+
+$possible_url = array("get_user","get_messages","send_message");
 
 if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
 {
@@ -59,6 +74,11 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
       case "get_messages":
         if (isset($_GET["uid"]))
          echo $value = get_messages($_GET["uid"],$db);
+        else
+          $value = "Missing argument";
+        break;
+    case "send_message":
+         echo $value = send($_POST,$db);
         else
           $value = "Missing argument";
         break;
