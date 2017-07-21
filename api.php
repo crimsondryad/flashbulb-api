@@ -20,10 +20,9 @@ function get_messages($uid, $db) {
   $query = "select * from base_message where base_message.b_uid ='".$uid."'";
   $result = mysqli_query($db, $query);
   $num_rows = mysqli_num_rows($result);
-  print_r($result);
+  
   while($row = mysqli_fetch_assoc($result)) {
     
-    print_r($row);
    $json .= json_encode($row);
    /*
     foreach($row as $val) {
