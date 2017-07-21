@@ -83,7 +83,7 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
 
 } else {
    if (isset($_POST["action"]) && in_array($_POST["action"], $possible_url)) {
-    switch {
+    switch ($_POST["action"]) {
     case "send_message":
         $post = $_POST;
          echo $value = send_message($post,$db);
