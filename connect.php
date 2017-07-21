@@ -7,7 +7,7 @@ $dbname = getenv("MYSQLCONNSTR_schema");
 // Create connection
 
 $con=mysqli_init();
-mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL);
+//mysqli_ssl_set($con, NULL, NULL, {ca-cert filename}, NULL, NULL);
 mysqli_real_connect($con, "innovation-terminators.mysql.database.azure.com", "terminators@innovation-terminators", $password, $dbname, 3306);
 
 // Check connection
