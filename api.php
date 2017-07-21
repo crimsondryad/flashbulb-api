@@ -16,7 +16,21 @@ function get_user($username, $db) {
 echo json_encode($row);
 }
 
-$possible_url = array("get_user","get_message");
+function get_messages($uid, $db) {
+  $query = "select * from base_message where base_message.b_uid ='".$uid."'";
+  $result = mysqli_query($db, $query);
+  $row = mysqli_fetch_array($result);
+    $json = "{";
+    foreach($row as $line) {
+        $json .= $line . "\n";
+      }
+      $json .= "\n\n";
+    $json .= "}";
+
+echo json_encode($row);
+}
+
+$possible_url = array("get_user","get_messages");
 
 if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
 {
