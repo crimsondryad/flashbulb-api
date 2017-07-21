@@ -19,14 +19,9 @@ if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } 
 */
-<?php
-   
-$servername = getenv('MYSQLCONNSTR_host');
-$user = getenv('MYSQLCONNSTR_username');
-$password = getenv('MYSQLCONNSTR_password');
-$dbname = getenv('MYSQLCONNSTR_schema');
 
-//phpinfo();
+   
+
 
 // Create connection
 
