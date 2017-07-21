@@ -46,7 +46,7 @@ function get_messages($uid, $db) {
 */
 return $json;
 }
-$post = $_POST;
+
 function send_message($post, $db) {
 
    $message = $post['text'];
@@ -80,15 +80,16 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
         break;
     
     }
-    /*
+
 } else {
    if (isset($_POST["action"]) && in_array($_POST["action"], $possible_url)) 
     case "send_message":
-         echo $value = send_message($_POST,$db);
+        $post = $_POST;
+         echo $value = send_message($post,$db);
         else
           $value = "Missing argument";
         break;
 }
-*/
+
 
 ?>
