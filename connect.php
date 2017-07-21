@@ -4,6 +4,8 @@ $username = getenv("MYSQLCONNSTR_username");
 $password = getenv("MYSQLCONNSTR_mysql_password");
 $dbname = getenv("MYSQLCONNSTR_schema");
 
+print_r($getenv);
+
 // Create connection
 
 $con=mysqli_init();
