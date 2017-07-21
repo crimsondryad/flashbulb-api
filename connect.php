@@ -22,10 +22,8 @@ if ($con->connect_error) {
 */
 
 // Create connection - old skool
-$con = mysqli_connect("innovation-terminators.mysql.database.azure.com", "terminators@innovation-terminators", $password, $dbname);
-if(!$con) {
-    die("Connection failed: " . mysqli_connect_error());
-} 
+@ $db = mysqli_connect("innovation-terminators.mysql.database.azure.com", "terminators@innovation-terminators", $password) or die ("Could not connect");
+mysql_select_db("flashbulb_dev", $db) or die("No db selected");
 
 // Check connection
 /*
