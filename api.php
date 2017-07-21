@@ -46,15 +46,15 @@ function get_messages($uid, $db) {
 */
 return $json;
 }
+$post = $_POST;
+function send_message($post, $db) {
 
-function send_message($_POST, $db) {
-
-   $message = $_POST['text'];
-   $b_username = $_POST['sender']; // is this really the sender field?
-   $b_uid = $_POST['b_uid'];  // sender or recipient?
-   $bstat = $_POST['category'];
+   $message = $post['text'];
+   $b_username = $post['sender']; // is this really the sender field?
+   $b_uid = $post['b_uid'];  // sender or recipient?
+   $bstat = $post['category'];
     
-  $query = "insert into base_message (bid, b_username, bstat, bdate, bmsg, b_uid) values  ('', $b_username, $bstat, NOW(), $message, $b_uid)";
+  $query = "insert into base_message (bid, b_username, bstat, bdate, bmsg, b_uid) values  ('', $b_username, $bstat, '', $message, $b_uid)";
   if (mysqli_query($db, $query)) {
     return "Message sent";
   } else {
@@ -80,6 +80,7 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
         break;
     
     }
+    /*
 } else {
    if (isset($_POST["action"]) && in_array($_POST["action"], $possible_url)) 
     case "send_message":
@@ -88,5 +89,6 @@ if (isset($_GET["action"]) && in_array($_GET["action"], $possible_url))
           $value = "Missing argument";
         break;
 }
+*/
 
 ?>
